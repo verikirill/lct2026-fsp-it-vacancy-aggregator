@@ -15,3 +15,7 @@ def list_vacancies(q: str = "", db: Session = Depends(get_db)):
         query = query.filter(Vacancy.title.ilike(f"%{q}%"))
     return query.limit(50).all()
 
+
+@router.get("/{vacancy_id}", response_model=VacancyOut)
+def get_vacancy(vacancy_id: int, db: Session = Depends(get_db)):
+    return db.get(Vacancy, vacancy_id)
