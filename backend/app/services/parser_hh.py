@@ -16,3 +16,18 @@ def fetch_page(role: int, page: int) -> list[dict]:
     response.raise_for_status()
     return response.json()["items"]
 
+
+def normalize(item: dict) -> dict:
+    salary = item.get("salary") or {}
+    return {
+        "source": "hh",
+        "external_id": item["id"],
+        "title": item["name"],
+        "company": item["employer"]["name"],
+        "city": item["area"]["name"],
+        "salary_from": salary.get("from"),
+        "salary_to": salary.get("to"),
+        "description": item["snippet"]["requirement"],
+        "skills": ",".join(s["name"] for s in item.get("key_skills", [])),
+        "published_at": item["published_at"],
+    }
