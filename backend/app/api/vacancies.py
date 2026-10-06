@@ -9,10 +9,12 @@ router = APIRouter()
 
 
 @router.get("/", response_model=list[VacancyOut])
-def list_vacancies(q: str = "", db: Session = Depends(get_db)):
+def list_vacancies(q: str = "", city: str | None = None, db: Session = Depends(get_db)):
     query = db.query(Vacancy)
     if q:
         query = query.filter(Vacancy.title.ilike(f"%{q}%"))
+    if city:
+        query = query.filter(Vacancy.city == city)
     return query.limit(50).all()
 
 
