@@ -6,6 +6,9 @@ from app.models import Vacancy
 from app.services.parser_hh import IT_ROLES, fetch_page, normalize
 
 celery = Celery("talenthub", broker=settings.redis_url)
+celery.conf.beat_schedule = {
+    "parse-hh": {"task": "app.workers.tasks.parse_hh", "schedule": settings.parse_interval_minutes * 60},
+}
 
 
 @celery.task
