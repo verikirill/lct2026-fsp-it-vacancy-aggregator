@@ -15,7 +15,7 @@ def match_vacancies(db, user_id: int) -> list[dict]:
     corpus = [user.skills] + [v.skills + " " + v.title for v in vacancies]
     matrix = TfidfVectorizer().fit_transform(corpus)
     scores = cosine_similarity(matrix[0], matrix[1:])[0]
-    bonus = 0.0
+    bonus = rating.compute_elo_bonus(user.fsp_rating) * RATING_BONUS
     ranked = sorted(zip(vacancies, scores), key=lambda p: p[1] + bonus, reverse=True)
     return [
         {"vacancy_id": v.id, "title": v.title, "score": round(float(s) + bonus, 3)}
