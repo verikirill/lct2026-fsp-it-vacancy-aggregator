@@ -3,6 +3,7 @@
     <h2>{{ profile.full_name }}</h2>
     <div class="card">
       <p>Рейтинг ФСП: <b>{{ profile.fsp_rating }}</b></p>
+      <button class="btn" @click="sync">Обновить из ФСП</button>
     </div>
     <div class="card">
       <h3>Достижения</h3>
