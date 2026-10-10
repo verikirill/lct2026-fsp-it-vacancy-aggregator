@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     hh_api_url: str = "https://api.hh.ru"
     fsp_api_url: str = "https://fsp-russia.com/api"
     parse_interval_minutes: int = 30
+    match_top_n: int = 20
 
     class Config:
         env_prefix = "TH_"
