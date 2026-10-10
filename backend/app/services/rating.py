@@ -11,4 +11,4 @@ def calc_elo(results: list[dict]) -> float:
         expected = 1 / (1 + 10 ** ((r["field_rating"] - rating) / 400))
         score = max(0.0, 1 - (r["place"] - 1) / r["participants"])
         rating += K * LEVEL_WEIGHT[r["level"]] * (score - expected)
-    return rating
+    return round(rating, 1)
