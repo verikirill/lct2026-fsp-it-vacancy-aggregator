@@ -36,3 +36,13 @@ docker compose up -d --build
 | GET | /api/matching/{user_id} | топ-20 подходящих вакансий |
 
 Подробнее об устройстве в [docs/architecture.md](docs/architecture.md).
+
+## Переменные окружения
+
+| Переменная | По умолчанию | Назначение |
+| --- | --- | --- |
+| TH_DATABASE_URL | postgresql://talenthub:talenthub@db:5432/talenthub | подключение к PostgreSQL |
+| TH_REDIS_URL | redis://redis:6379/0 | брокер Celery |
+| TH_HH_API_URL | https://api.hh.ru | API hh.ru |
+| TH_FSP_API_URL | https://fsp-russia.com/api | API ФСП |
+| TH_PARSE_INTERVAL_MINUTES | 30 | период парсинга вакансий, минуты |
