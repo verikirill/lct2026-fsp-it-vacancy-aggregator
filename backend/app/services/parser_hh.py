@@ -11,7 +11,7 @@ def fetch_page(role: int, page: int) -> list[dict]:
     response = httpx.get(
         f"{settings.hh_api_url}/vacancies",
         params={"professional_role": role, "page": page, "per_page": 100},
-        timeout=10,
+        timeout=20,
     )
     response.raise_for_status()
     return response.json()["items"]
