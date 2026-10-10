@@ -14,3 +14,25 @@
 ## Стек
 
 FastAPI, SQLAlchemy, PostgreSQL 16, Celery, Redis, Vue 3, Vite, Pinia.
+
+## Запуск
+
+```sh
+cp .env.example .env
+docker compose up -d --build
+```
+
+- фронтенд: http://localhost:3000
+- API и Swagger: http://localhost:8000/docs
+
+## API
+
+| Метод | Путь | Что делает |
+| --- | --- | --- |
+| GET | /api/vacancies/ | лента вакансий, фильтры `q` и `city` |
+| GET | /api/vacancies/{id} | карточка вакансии |
+| GET | /api/profiles/{id} | профиль участника с достижениями |
+| POST | /api/profiles/{id}/sync-fsp | подтянуть результаты из ФСП и пересчитать рейтинг |
+| GET | /api/matching/{user_id} | топ-20 подходящих вакансий |
+
+Подробнее об устройстве в [docs/architecture.md](docs/architecture.md).
