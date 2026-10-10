@@ -15,7 +15,7 @@ def list_vacancies(q: str = "", city: str | None = None, db: Session = Depends(g
         query = query.filter(Vacancy.title.ilike(f"%{q}%"))
     if city:
         query = query.filter(Vacancy.city == city)
-    return query.limit(50).all()
+    return query.order_by(Vacancy.published_at.desc()).limit(50).all()
 
 
 @router.get("/{vacancy_id}", response_model=VacancyOut)
