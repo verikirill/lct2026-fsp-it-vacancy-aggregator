@@ -7,7 +7,7 @@ class VacancyOut(BaseModel):
     id: int
     title: str
     company: str
-    city: str
+    city: str | None
     salary_from: int | None
     salary_to: int | None
     published_at: datetime
