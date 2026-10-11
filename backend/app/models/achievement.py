@@ -13,5 +13,6 @@ class Achievement(Base):
     place = Column(Integer)
     level = Column(String(50))  # региональный, всероссийский, международный
     date = Column(Date)
+    proof_url = Column(String(1000))
 
     owner = relationship("User", back_populates="achievements")
