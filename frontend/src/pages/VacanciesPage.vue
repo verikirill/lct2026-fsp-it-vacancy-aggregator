@@ -8,6 +8,7 @@
     <div v-for="v in vacancies" :key="v.id" class="card">
       <h3>{{ v.title }}</h3>
       <p>{{ v.company }} · {{ v.city }}</p>
+      <p v-if="v.salary_from">от {{ v.salary_from }} ₽</p>
       <router-link :to="`/vacancy/${v.id}`">Подробнее</router-link>
     </div>
   </section>
