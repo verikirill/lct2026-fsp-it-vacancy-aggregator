@@ -46,3 +46,17 @@ docker compose up -d --build
 | TH_HH_API_URL | https://api.hh.ru | API hh.ru |
 | TH_FSP_API_URL | https://fsp-russia.com/api | API ФСП |
 | TH_PARSE_INTERVAL_MINUTES | 30 | период парсинга вакансий, минуты |
+
+## Скриншоты
+
+| Лента вакансий | Карточка вакансии |
+| --- | --- |
+| ![Лента вакансий](docs/screens/vacancies.jpg) | ![Карточка вакансии](docs/screens/vacancy.jpg) |
+
+| Профиль участника | Рекомендации |
+| --- | --- |
+| ![Профиль участника](docs/screens/profile.jpg) | ![Рекомендации](docs/screens/recommendations.jpg) |
+
+Админка парсера:
+
+![Админка парсера](docs/screens/parser-admin.jpg)
