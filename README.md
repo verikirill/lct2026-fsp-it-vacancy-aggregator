@@ -60,3 +60,7 @@ docker compose up -d --build
 Админка парсера:
 
 ![Админка парсера](docs/screens/parser-admin.jpg)
+
+## Команда
+
+Спецтрек ФСП, ЛЦТ 2026.
